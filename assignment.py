@@ -184,7 +184,7 @@ if __name__ == '__main__':
 	"""
 	parser = argparse.ArgumentParser(description='Resttest assignment.')
 	parser.add_argument('-c', '--clean',
-						help='clean up the company names',
+						help='clean up the company names (not yet implemented)',
 						action='store_true')
 	parser.add_argument('-u', '--unique',
 						help='keep only the unique transactions',

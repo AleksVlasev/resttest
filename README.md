@@ -7,7 +7,7 @@ the app done by running
 with optional arguments
 
     -h, --help            show this help message and exit
-    -c, --clean           clean up the company names
+    -c, --clean           clean up the company names (not yet implemented)
     -u, --unique          keep only the unique transactions
     -d, --duplicates      print out the duplicated transactions
     -a, --accumulate      print out the daily accumulated balances
