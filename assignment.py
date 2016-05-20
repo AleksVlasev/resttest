@@ -35,17 +35,6 @@ def page_url(number):
 	return base_url + str(number) + ".json"
 
 
-def print_dict(dictionary, indent_str='', inline=False):
-	if inline:
-		print indent_str,
-		for item in dictionary:
-			print item + ": " + str(dictionary[item]) + ',',
-		print ''
-	else:
-		for item in dictionary:
-			print indent_str + item + ": " + str(dictionary[item])
-
-
 def print_headline(string):
 	print "\n\n================================================================================"
 	print string
