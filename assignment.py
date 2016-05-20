@@ -51,6 +51,7 @@ def print_headline(string):
 	print string
 	print "================================================================================\n"
 
+
 def find_duplicates(lis):
 	uniques = []
 	duplicates = []
@@ -80,6 +81,13 @@ def decategorize(categories):
 		for dictionary in categories[cat]:
 			list_of_dicts.append(dictionary)
 	return list_of_dicts
+
+
+def to_list(dictionary, sort=False):
+	lis = [[key, dictionary[key]] for key in dictionary]
+	if sort:
+		lis.sort(key=lambda x: x[0])
+	return lis
 "--------------------------------------------------------------------------------"
 
 
@@ -135,12 +143,6 @@ def daily_accumulated_balances(transactions):
 		date = tran['Date']
 		balances[date] = runnning_total
 	return to_list(balances)
-
-
-def to_list(dictionary):
-	lis = [[key, dictionary[key]] for key in dictionary]
-	lis.sort(key=lambda x: x[0])
-	return lis
 "--------------------------------------------------------------------------------"
 
 if __name__ == '__main__':
