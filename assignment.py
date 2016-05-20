@@ -206,33 +206,32 @@ if __name__ == '__main__':
 
 	"App logic."
 	"--------------------------------------------------------------------------------"
-
-	trans = get_transactions()
+	transactions = get_transactions()
 	if args.clean:
-		trans = clean_company_names(trans)
+		transactions = clean_company_names(transactions)
 
 	if args.duplicates or args.unique:
-		uniques, duplicates = find_duplicates(trans)
+		uniques, duplicates = find_duplicates(transactions)
 		if args.duplicates:
 			print_headline("Duplicate transactions")
 			print tabulate(duplicates, headers='keys', floatfmt=".2f")
 		if args.unique:
-			trans = uniques
+			transactions = uniques
 
-	print "\nOverall Balance: {}".format(balance(trans))
+	print "\nOverall Balance: {}".format(balance(transactions))
 
 	if args.accumulate:
 		print_headline("Daily balances")
-		balances = daily_accumulated_balances(trans)
+		balances = daily_accumulated_balances(transactions)
 		print tabulate(balances, headers=['Date', 'Amount'], floatfmt=".2f")
 
 	if args.uncategorized:
 		print_headline("List of transactions")
-		print tabulate(trans, headers='keys', floatfmt=".2f")
+		print tabulate(transactions, headers='keys', floatfmt=".2f")
 
 	if args.categorized:
 		print_headline("List of transactions by expense category")
-		by_expense = categorize_by_key(trans, key='Ledger')
+		by_expense = categorize_by_key(transactions, key='Ledger')
 		for cat in by_expense:
 			print "\nCategory: {}\nBalance: {}\n".format(cat, balance(by_expense[cat]))
 			print tabulate(by_expense[cat], headers='keys', floatfmt=".2f")
